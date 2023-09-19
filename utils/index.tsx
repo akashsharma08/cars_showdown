@@ -6,7 +6,7 @@ export async function fetchCars(filters: FilterProps) {
   const { manufacturer, year, model, limit, fuel } = filters;
 
   const headers = {
-    'X-RapidAPI-Key': 'c0dd42df5dmsh198b1fbd1e07c3ep1bfe6fjsn5ad66b0edfbc',
+    'X-RapidAPI-Key': '464a96905fmshe43228534bc65b9p1ebc6cjsn1b91fd013449' || "",
     'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
   }
 
@@ -44,7 +44,7 @@ export const generateCarImageUrl = (car: carProps, angle?: string) => {
   const url = new URL("https://cdn.imagin.studio/getimage");
   const { make, year, model } = car;
 
-  url.searchParams.append('customer', 'hrjavascript-mastery');
+  url.searchParams.append('customer', 'hrjavascript-mastery' || '');
   url.searchParams.append('make', make);
   url.searchParams.append('modelFamily', model.split(" ")[0]);
   url.searchParams.append('zoomType', 'fullscreen');

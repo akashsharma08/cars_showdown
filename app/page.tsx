@@ -34,9 +34,9 @@ export default function Home () {
       setLoading(false)
     }
   }
-    // getCars()
+  // getCars()
 
-  useEffect(() => {		
+  useEffect(() => {
     getCars()
   }, [allCars, loading, manufacturer, model, fuel, year, limit])
 
@@ -56,11 +56,8 @@ export default function Home () {
         <div className='home__filters'>
           <SearchBar setManufacturer={setManufacturer} setModel={setModel} />
           <div className='home__filter-container'>
-            <CustomFilter setFilter={setFuel}  options={fuels} />
-            <CustomFilter
-              setFilter={setYear}
-              options={yearsOfProduction}
-            />
+            <CustomFilter setFilter={setFuel} options={fuels} />
+            <CustomFilter setFilter={setYear} options={yearsOfProduction} />
           </div>
         </div>
 
@@ -85,7 +82,7 @@ export default function Home () {
             <ShowMore
               pageNumber={(limit || 10) / 10}
               isNext={limit > allCars.length}
-							setLimit={setLimit}
+              setLimit={setLimit}
             />
           </section>
         ) : (
