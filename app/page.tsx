@@ -56,10 +56,9 @@ export default function Home () {
         <div className='home__filters'>
           <SearchBar setManufacturer={setManufacturer} setModel={setModel} />
           <div className='home__filter-container'>
-            <CustomFilter setFilter={setFuel} title='fuel' options={fuels} />
+            <CustomFilter setFilter={setFuel}  options={fuels} />
             <CustomFilter
               setFilter={setYear}
-              title='year'
               options={yearsOfProduction}
             />
           </div>
@@ -90,10 +89,11 @@ export default function Home () {
             />
           </section>
         ) : (
-          <div className='home__error-container'>
-            <h2 className='text-black text-xl font-bold'>Oops, no results!</h2>
-            <p>{allCars?.message}</p>
-          </div>
+          !loading && (
+            <div className='home__error-container'>
+              <h2 className='text-black text-xl font-bold'>Oops, no results</h2>
+            </div>
+          )
         )}
       </div>
     </main>

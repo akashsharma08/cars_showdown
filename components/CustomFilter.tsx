@@ -4,12 +4,11 @@ import { useState, Fragment } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { Listbox, Transition } from '@headlessui/react'
-import { CustonFilterProps } from '@/types'
+import { CustomFilterProps } from '@/types'
 import { updateSearchParams } from '@/utils'
 
-const CustomFilter = ({ title, options , setFilter}: CustonFilterProps) => {
+export default function CustomFilter<T>({ options, setFilter }: CustomFilterProps<T>) {
   const [selected, setSelected] = useState(options[0])
-
 
   return (
     <div className='w-fit'>
@@ -17,7 +16,7 @@ const CustomFilter = ({ title, options , setFilter}: CustonFilterProps) => {
         value={selected}
         onChange={e => {
           setSelected(e)
-          setFilter(e.value)
+          setFilter(e.value as unknown as T)
         }}
       >
         <div className='relative w-fit z-10'>
@@ -67,4 +66,4 @@ const CustomFilter = ({ title, options , setFilter}: CustonFilterProps) => {
   )
 }
 
-export default CustomFilter
+
